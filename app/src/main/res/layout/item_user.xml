@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/tv_item_user_name"
-            android:layout_width="@dimen/item_user_tv_name_and_country_layout_width"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/item_user_tv_name_and_country_layout_height"
             android:layout_toRightOf="@+id/iv_item_user_avatar"
             android:layout_alignParentRight="true"
@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/tv_item_user_state"
-            android:layout_width="@dimen/item_user_tv_name_and_country_layout_width"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/item_user_tv_name_and_country_layout_height"
             android:layout_toRightOf="@+id/iv_item_user_avatar"
             android:layout_alignParentRight="true"

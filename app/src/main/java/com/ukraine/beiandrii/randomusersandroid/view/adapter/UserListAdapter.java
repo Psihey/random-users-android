@@ -1,5 +1,6 @@
 package com.ukraine.beiandrii.randomusersandroid.view.adapter;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ukraine.beiandrii.randomusersandroid.R;
+import com.ukraine.beiandrii.randomusersandroid.model.UserModel;
 
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
  */
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserViewHolder> {
-    private List<Objects> mUsers;
+    private List<UserModel> mUsers;
 
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,7 +31,9 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
-
+        holder.ivAvatar.setImageDrawable(Drawable.createFromPath(mUsers.get(position).getPicture().getThumbnail()));
+        holder.tvUserName.setText(mUsers.get(position).getName().getFirstName() + " " +mUsers.get(position).getName().getLastName());
+        holder.tvUserState.setText(mUsers.get(position).getLocation().getState());
     }
 
     @Override

@@ -11,14 +11,7 @@ public class LocationModel implements Parcelable {
     private String street;
     private String city;
     private String state;
-    private long postcode;
-
-    public LocationModel(String street, String city, String state, long postcode) {
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.postcode = postcode;
-    }
+    private String postcode;
 
     public String getStreet() {
         return street;
@@ -44,11 +37,11 @@ public class LocationModel implements Parcelable {
         this.state = state;
     }
 
-    public long getPostcode() {
+    public String getPostcode() {
         return postcode;
     }
 
-    public void setPostcode(long postcode) {
+    public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
 
@@ -62,17 +55,20 @@ public class LocationModel implements Parcelable {
         dest.writeString(this.street);
         dest.writeString(this.city);
         dest.writeString(this.state);
-        dest.writeLong(this.postcode);
+        dest.writeString(this.postcode);
+    }
+
+    public LocationModel() {
     }
 
     protected LocationModel(Parcel in) {
         this.street = in.readString();
         this.city = in.readString();
         this.state = in.readString();
-        this.postcode = in.readLong();
+        this.postcode = in.readString();
     }
 
-    public static final Parcelable.Creator<LocationModel> CREATOR = new Parcelable.Creator<LocationModel>() {
+    public static final Creator<LocationModel> CREATOR = new Creator<LocationModel>() {
         @Override
         public LocationModel createFromParcel(Parcel source) {
             return new LocationModel(source);

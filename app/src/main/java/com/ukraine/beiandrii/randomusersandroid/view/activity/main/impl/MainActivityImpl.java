@@ -1,9 +1,11 @@
-package com.ukraine.beiandrii.randomusersandroid;
+package com.ukraine.beiandrii.randomusersandroid.view.activity.main.impl;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.ukraine.beiandrii.randomusersandroid.R;
+
+public class MainActivityImpl extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

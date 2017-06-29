@@ -112,4 +112,16 @@ public class LoginModel implements Parcelable {
             return new LoginModel[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "LoginModel{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", md5='" + md5 + '\'' +
+                ", sha1='" + sha1 + '\'' +
+                ", sha256='" + sha256 + '\'' +
+                '}';
+    }
 }

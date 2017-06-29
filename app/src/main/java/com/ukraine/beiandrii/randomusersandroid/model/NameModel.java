@@ -9,15 +9,8 @@ import android.os.Parcelable;
 
 public class NameModel implements Parcelable {
     private String title;
-    private String firstName;
-    private String lastName;
-
-
-    public NameModel(String title, String firstName, String lastName) {
-        this.title = title;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+    private String first;
+    private String last;
 
     public String getTitle() {
         return title;
@@ -27,20 +20,20 @@ public class NameModel implements Parcelable {
         this.title = title;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst() {
+        return first;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirst(String first) {
+        this.first = first;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast() {
+        return last;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast(String last) {
+        this.last = last;
     }
 
     @Override
@@ -51,17 +44,20 @@ public class NameModel implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.title);
-        dest.writeString(this.firstName);
-        dest.writeString(this.lastName);
+        dest.writeString(this.first);
+        dest.writeString(this.last);
+    }
+
+    public NameModel() {
     }
 
     protected NameModel(Parcel in) {
         this.title = in.readString();
-        this.firstName = in.readString();
-        this.lastName = in.readString();
+        this.first = in.readString();
+        this.last = in.readString();
     }
 
-    public static final Parcelable.Creator<NameModel> CREATOR = new Parcelable.Creator<NameModel>() {
+    public static final Creator<NameModel> CREATOR = new Creator<NameModel>() {
         @Override
         public NameModel createFromParcel(Parcel source) {
             return new NameModel(source);
@@ -72,4 +68,13 @@ public class NameModel implements Parcelable {
             return new NameModel[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "NameModel{" +
+                "title='" + title + '\'' +
+                ", first='" + first + '\'' +
+                ", last='" + last + '\'' +
+                '}';
+    }
 }

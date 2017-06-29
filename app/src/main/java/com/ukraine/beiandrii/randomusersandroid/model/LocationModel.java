@@ -79,4 +79,14 @@ public class LocationModel implements Parcelable {
             return new LocationModel[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "LocationModel{" +
+                "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", postcode='" + postcode + '\'' +
+                '}';
+    }
 }

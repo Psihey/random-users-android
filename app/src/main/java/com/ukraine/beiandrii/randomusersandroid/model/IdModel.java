@@ -59,4 +59,12 @@ public class IdModel implements Parcelable {
             return new IdModel[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "IdModel{" +
+                "name='" + name + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }

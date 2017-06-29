@@ -71,4 +71,13 @@ public class PictureModel implements Parcelable {
             return new PictureModel[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "PictureModel{" +
+                "large='" + large + '\'' +
+                ", medium='" + medium + '\'' +
+                ", thumbnail='" + thumbnail + '\'' +
+                '}';
+    }
 }

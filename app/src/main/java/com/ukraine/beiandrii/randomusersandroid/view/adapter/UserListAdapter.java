@@ -1,6 +1,6 @@
 package com.ukraine.beiandrii.randomusersandroid.view.adapter;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.ukraine.beiandrii.randomusersandroid.R;
 import com.ukraine.beiandrii.randomusersandroid.model.UserModel;
 
@@ -21,7 +22,14 @@ import butterknife.ButterKnife;
  */
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserViewHolder> {
+
+    private Context mContext;
     private List<UserModel> mUsers;
+
+    public UserListAdapter(Context context, List<UserModel> users) {
+        this.mContext = context;
+        this.mUsers = users;
+    }
 
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -29,10 +37,13 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         return new UserViewHolder(view);
     }
 
+    //TODO Implement photo at error or bad connection with Picasso
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
-        holder.ivAvatar.setImageDrawable(Drawable.createFromPath(mUsers.get(position).getPicture().getThumbnail()));
-        holder.tvUserName.setText(mUsers.get(position).getName().getFirstName() + " " +mUsers.get(position).getName().getLastName());
+        Picasso.with(mContext)
+                .load(mUsers.get(position).getPicture().getThumbnail())
+                .into(holder.ivAvatar);
+        holder.tvUserName.setText(mUsers.get(position).getName().getFirst());
         holder.tvUserState.setText(mUsers.get(position).getLocation().getState());
     }
 

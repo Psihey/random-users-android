@@ -5,4 +5,5 @@ package com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist;
  */
 
 public interface UsersListFragment {
+
 }

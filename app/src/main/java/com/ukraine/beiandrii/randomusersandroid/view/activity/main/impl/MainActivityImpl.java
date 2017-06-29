@@ -17,6 +17,11 @@ public class MainActivityImpl extends AppCompatActivity {
         startUsersListFragment();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     private void startUsersListFragment() {
         FragmentManager fragManager = getSupportFragmentManager();
         UsersListFragmentImpl usersListFragment = new UsersListFragmentImpl();

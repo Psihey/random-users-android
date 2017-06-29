@@ -3,6 +3,7 @@ package com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.impl;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ukraine.beiandrii.randomusersandroid.R;
+import com.ukraine.beiandrii.randomusersandroid.model.UserModel;
 import com.ukraine.beiandrii.randomusersandroid.view.adapter.UserListAdapter;
+import com.ukraine.beiandrii.randomusersandroid.view.consts.FragmentConsts;
+import com.ukraine.beiandrii.randomusersandroid.view.fragment.userprofile.impl.UserProfileFragmentImpl;
 import com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.UsersListFragment;
 import com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.UsersListFragmentPresenter;
 
@@ -64,9 +68,22 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
         mRecyclerViewUser.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerViewUser.setLayoutManager(linearLayoutManager);
-        UserListAdapter userListAdapter = new UserListAdapter(getContext(),mUsersListFragmentPresenter.getUsersForAdapter());
+        UserListAdapter userListAdapter = new UserListAdapter(getContext(),mUsersListFragmentPresenter.getUsersForAdapter(),this);
         mRecyclerViewUser.setAdapter(userListAdapter);
     }
 
 
+    @Override
+    public void getUserFromAdapter(UserModel userModel) {
+        FragmentManager fragManager = getFragmentManager();
+        UserProfileFragmentImpl userProfileFragment = UserProfileFragmentImpl.getInstance(userModel);
+        fragManager
+                .beginTransaction()
+                .replace(R.id.corLay_container_main_activity,
+                        userProfileFragment,
+                        FragmentConsts.TAG_USER_PROFILE_FRAGMENT)
+                .addToBackStack(FragmentConsts.TAG_USER_PROFILE_FRAGMENT)
+                .commit();
+
+    }
 }

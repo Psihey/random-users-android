@@ -1,5 +1,6 @@
 package com.ukraine.beiandrii.randomusersandroid.view.activity.main.impl;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class MainActivityImpl extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(mToolBar);
         startUsersListFragment();
+        mToolBar.setTitleTextColor(Color.WHITE);
     }
 
     @Override

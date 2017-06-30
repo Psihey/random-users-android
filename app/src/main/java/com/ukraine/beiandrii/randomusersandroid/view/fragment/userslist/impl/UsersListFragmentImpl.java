@@ -1,6 +1,7 @@
 package com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.impl;
 
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,8 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 import com.ukraine.beiandrii.randomusersandroid.R;
 import com.ukraine.beiandrii.randomusersandroid.model.UserModel;
@@ -48,9 +53,23 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
         mUnbinder = ButterKnife.bind(this, rootView);
         mUsersListFragmentPresenter = new UsersListFragmentPresenterImpl();
         mUsersListFragmentPresenter.bindView(this);
-
         initProgressDialog();
+        setHasOptionsMenu(true);
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_lists_fragment,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(R.id.menu_item_refresh == id){
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -95,6 +114,7 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
         mRecyclerViewUser.setLayoutManager(linearLayoutManager);
         UserListAdapter userListAdapter = new UserListAdapter(getContext(),userModel,this);
         mRecyclerViewUser.setAdapter(userListAdapter);
+
     }
 
     @Override
@@ -119,6 +139,11 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
         ActionBar mainActivityToolbar =((AppCompatActivity) getActivity()).getSupportActionBar();
         if (!mainActivityToolbar.isShowing()){
             mainActivityToolbar.show();
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getActivity().getWindow();
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
     }
 

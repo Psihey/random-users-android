@@ -116,7 +116,7 @@
 
         </RelativeLayout>
 
-        <include layout="@layout/item_divider" />
+        <include layout="@layout/item_separator" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -226,7 +226,7 @@
 
         </RelativeLayout>
 
-        <include layout="@layout/item_divider" />
+        <include layout="@layout/item_separator" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -336,7 +336,7 @@
 
         </RelativeLayout>
 
-        <include layout="@layout/item_divider" />
+        <include layout="@layout/item_separator" />
 
         <LinearLayout
             android:layout_width="match_parent"

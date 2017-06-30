@@ -8,6 +8,7 @@
         android:id="@+id/layout_item_user"
         android:layout_width="match_parent"
         android:layout_height="72dp"
+        android:background="?attr/selectableItemBackground"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 

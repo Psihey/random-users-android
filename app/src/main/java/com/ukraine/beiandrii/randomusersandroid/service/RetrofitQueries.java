@@ -27,4 +27,7 @@ public interface RetrofitQueries {
     @GET("api")
     Observable<UserJson> getUsersByGender(@Query("results") int numResults, @Query("gender") String gender);
 
+    @GET("api")
+    Observable<UserJson> getUsersWithPagination(@Query("results") int numResults,@Query("page") int page);
+
 }

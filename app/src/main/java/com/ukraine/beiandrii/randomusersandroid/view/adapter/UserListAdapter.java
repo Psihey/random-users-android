@@ -56,7 +56,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
                 + lastName.substring(0,1).toUpperCase() + lastName.substring(1));
         holder.tvUserState.setText(state.substring(0,1).toUpperCase() + state.substring(1));
 
-        holder.relativeLayout.setOnClickListener(view -> mUserListFragment.getUserFromAdapter(mUsers.get(position)));
+        holder.relativeLayout.setOnClickListener(view -> mUserListFragment.openUserProfileFragment(mUsers.get(position)));
     }
 
     @Override

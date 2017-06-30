@@ -31,9 +31,9 @@ import butterknife.Unbinder;
  */
 
 public class UserProfileFragmentImpl extends Fragment {
-    @BindView(R.id.tv_mobile_number)
+    @BindView(R.id.tv_telephone_mobile)
     TextView tvMobileNumber;
-    @BindView(R.id.tv_cell_number)
+    @BindView(R.id.tv_telephone_home)
     TextView tvCellNumber;
     @BindView(R.id.iv_big_avatar_user_profile)
     ImageView ivAvatar;

@@ -7,4 +7,5 @@
     android:layout_below="@+id/tv_name_note_book"
     android:layout_marginBottom="8dp"
     android:layout_marginTop="8dp"
+    android:layout_marginLeft="72dp"
     android:background="@color/separator_line" />

@@ -2,6 +2,6 @@
 <resources>
     <dimen name="item_user_tv_name_and_country_layout_height">36dp</dimen>
     <dimen name="item_user_tv_name_and_country_paddingLeft">16dp</dimen>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="user_profile_fragment_margin">16dp</dimen>
+    <dimen name="user_profile_fragment_vertical_margin">16dp</dimen>
 </resources>

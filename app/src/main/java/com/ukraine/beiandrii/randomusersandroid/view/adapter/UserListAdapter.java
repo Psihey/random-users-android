@@ -1,6 +1,7 @@
 package com.ukraine.beiandrii.randomusersandroid.view.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 import com.ukraine.beiandrii.randomusersandroid.R;
 import com.ukraine.beiandrii.randomusersandroid.model.UserModel;
 import com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.UsersListFragment;
@@ -47,13 +50,21 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
         String firstName = mUsers.get(position).getName().getFirst();
         String lastName = mUsers.get(position).getName().getLast();
         String state = mUsers.get(position).getLocation().getState();
+        Transformation transformation = new RoundedTransformationBuilder()
+                .borderColor(Color.WHITE)
+                .borderWidthDp(1)
+                .cornerRadiusDp(30)
+                .oval(true)
+                .build();
 
         Picasso.with(mContext)
                 .load(mUsers.get(position).getPicture().getThumbnail())
+                .fit()
+                .transform(transformation)
                 .into(holder.ivAvatar);
-        holder.tvUserName.setText(firstName.substring(0,1).toUpperCase() + firstName.substring(1)
+        holder.tvUserName.setText(lastName.substring(0,1).toUpperCase() + lastName.substring(1)
                 + " "
-                + lastName.substring(0,1).toUpperCase() + lastName.substring(1));
+                + firstName.substring(0,1).toUpperCase() + firstName.substring(1));
         holder.tvUserState.setText(state.substring(0,1).toUpperCase() + state.substring(1));
 
         holder.relativeLayout.setOnClickListener(view -> mUserListFragment.openUserProfileFragment(mUsers.get(position)));

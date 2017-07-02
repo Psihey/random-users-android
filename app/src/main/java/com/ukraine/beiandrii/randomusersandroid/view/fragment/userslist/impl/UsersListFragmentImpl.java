@@ -122,7 +122,7 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
         mProgressDialog.cancel();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Oops ,something going in wrong way");
-        builder.setIcon(R.drawable.ic_aspect_ratio_black_24dp);
+        builder.setIcon(R.drawable.ic_round_error_symbol);
         builder.setMessage("Please check your internet connection");
         builder.setPositiveButton("Retry", (dialog, which) -> {
             mProgressDialog.show();
@@ -151,7 +151,7 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
         mProgressDialog = new ProgressDialog(getContext());
         mProgressDialog.setMessage("Please wait some seconds! fetching data from the server");
         mProgressDialog.setTitle("Inform Dialog");
-        mProgressDialog.setIcon(R.drawable.ic_public_black_24dp);
+        mProgressDialog.setIcon(R.drawable.ic_download_button);
         mProgressDialog.show();
     }
 

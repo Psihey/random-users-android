@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/activity_horizontal_margin"
-    android:padding="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/user_profile_fragment_margin"
+    android:padding="@dimen/user_profile_fragment_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/fragment_user_profile">
 
@@ -17,23 +17,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:clickable="true">
 
             <ImageView
                 android:id="@+id/iv_telephone_mobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_smartphone_call" />
+                android:layout_marginRight="@dimen/user_profile_fragment_margin"
+                android:src="@drawable/ic_phone_call_button" />
 
             <TextView
                 android:id="@+id/tv_telephone_mobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_toEndOf="@id/iv_telephone_mobile"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_telephone_mobile"
                 android:text="test"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -42,9 +43,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_telephone_mobile"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/iv_telephone_mobile"
+                android:layout_toRightOf="@id/iv_telephone_mobile"
                 android:text="Mobile Phone"
                 android:textSize="14sp" />
         </RelativeLayout>
@@ -53,36 +54,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:clickable="true">
 
             <ImageView
                 android:id="@+id/iv_telephone_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_old_handphone" />
+                android:layout_marginRight="@dimen/user_profile_fragment_margin"
+                android:visibility="invisible"
+                android:src="@drawable/ic_face_test_24dp"/>
 
             <TextView
                 android:id="@+id/tv_telephone_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_toEndOf="@id/iv_telephone_home"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_telephone_home"
                 android:text="test"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_telephone_home"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/iv_telephone_home"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_telephone_home"
                 android:text="Home Phone"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </RelativeLayout>
 
         <include layout="@layout/item_separator"/>
@@ -92,22 +95,23 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
             <ImageView
                 android:id="@+id/iv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_close_envelope" />
+                android:layout_marginRight="@dimen/user_profile_fragment_margin"
+                android:src="@drawable/ic_write_email_envelope_button" />
 
             <TextView
                 android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_toEndOf="@id/iv_email"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_email"
                 android:text="test"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -116,9 +120,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_email"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/iv_email"
+                android:layout_toRightOf="@id/iv_email"
                 android:text="Email"
                 android:textSize="14sp" />
         </RelativeLayout>
@@ -128,22 +132,24 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
             <ImageView
                 android:id="@+id/iv_postal_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_postal_card" />
+                android:layout_marginRight="@dimen/user_profile_fragment_margin"
+                android:visibility="invisible"
+                android:src="@drawable/ic_face_test_24dp"/>
 
             <TextView
                 android:id="@+id/tv_postal_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_toEndOf="@id/iv_postal_code"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_postal_code"
                 android:text="test"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -152,111 +158,113 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_postal_code"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/iv_postal_code"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_postal_code"
                 android:text="Postal Code"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </RelativeLayout>
 
         <include layout="@layout/item_separator"/>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
             <ImageView
                 android:id="@+id/iv_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_home_interface" />
+                android:layout_marginRight="@dimen/user_profile_fragment_margin"
+                android:src="@drawable/ic_map_placeholder"/>
 
             <TextView
                 android:id="@+id/tv_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_toEndOf="@id/iv_state"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_state"
                 android:text="test"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_state"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/iv_state"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_state"
                 android:text="State"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </RelativeLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
             <ImageView
                 android:id="@+id/iv_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_location_mark" />
+                android:layout_marginRight="@dimen/user_profile_fragment_margin"
+                android:visibility="invisible"
+                android:src="@drawable/ic_face_test_24dp"/>
 
             <TextView
                 android:id="@+id/tv_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_toEndOf="@id/iv_city"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_city"
                 android:text="test"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_city"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/iv_city"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_city"
                 android:text="City"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </RelativeLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
             <ImageView
                 android:id="@+id/iv_street"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_street" />
+                android:layout_marginRight="@dimen/user_profile_fragment_margin"
+                android:visibility="invisible"
+                android:src="@drawable/ic_face_test_24dp"/>
 
             <TextView
                 android:id="@+id/tv_street"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_toEndOf="@id/iv_street"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_street"
                 android:text="test"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -265,15 +273,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_street"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/iv_street"
+                android:layout_marginLeft="@dimen/user_profile_fragment_margin"
+                android:layout_toRightOf="@id/iv_street"
                 android:text="Street"
                 android:textSize="14sp" />
+
         </RelativeLayout>
 
-
-
-
     </LinearLayout>
+
 </android.support.v4.widget.NestedScrollView>

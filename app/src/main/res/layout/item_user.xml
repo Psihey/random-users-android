@@ -11,11 +11,12 @@
         android:background="?attr/selectableItemBackground"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
-
++
         <ImageView
             android:id="@+id/iv_item_user_avatar"
             android:layout_width="40dp"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
             android:layout_alignParentLeft="true"
             android:src="@drawable/ic_face_test_24dp" />
 
@@ -46,8 +47,13 @@
             android:paddingLeft="@dimen/item_user_tv_name_and_country_paddingLeft"
             android:text="state name"
             android:textSize="14sp" />
-
     </RelativeLayout>
 
+    <View xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/view_separator_line_first"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="72dp"
+        android:background="#1F000000" />
 
 </LinearLayout>

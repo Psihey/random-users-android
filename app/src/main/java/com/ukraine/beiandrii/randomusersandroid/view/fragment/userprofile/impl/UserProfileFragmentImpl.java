@@ -11,13 +11,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 import com.ukraine.beiandrii.randomusersandroid.R;
 import com.ukraine.beiandrii.randomusersandroid.model.UserModel;
 import com.ukraine.beiandrii.randomusersandroid.view.consts.BundleKeysConst;
@@ -41,6 +44,17 @@ public class UserProfileFragmentImpl extends Fragment {
     Toolbar toolbarUserProfile;
     @BindView(R.id.fab_user_profile)
     FloatingActionButton floatingButton;
+    @BindView(R.id.tv_email)
+    TextView tvEmail;
+    @BindView(R.id.tv_postal_code)
+    TextView tvPostalCode;
+    @BindView(R.id.tv_state)
+    TextView tvState;
+    @BindView(R.id.tv_city)
+    TextView tvCity;
+    @BindView(R.id.tv_street)
+    TextView tvStreet;
+
     private Unbinder mUnbinder;
     private ActionBar mActionBarMain;
     private Window mWindow;
@@ -51,6 +65,15 @@ public class UserProfileFragmentImpl extends Fragment {
         bundle.putParcelable(BundleKeysConst.BUNDLE_USER_MODEL, parcelable);
         userProfileFragment.setArguments(bundle);
         return userProfileFragment;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(android.R.id.home ==id){
+            System.out.println("fffffff");
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Nullable
@@ -72,7 +95,9 @@ public class UserProfileFragmentImpl extends Fragment {
         if(!mActionBarMain.isShowing()){
             mActionBarMain.show();
         }
-        mWindow.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mWindow.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
     }
 
     private void setUpToolbar() {
@@ -93,21 +118,28 @@ public class UserProfileFragmentImpl extends Fragment {
         String lastName = userModel.getName().getLast();
         tvMobileNumber.setText(userModel.getPhone());
         tvCellNumber.setText(userModel.getCell());
+        tvEmail.setText(userModel.getEmail());
+        tvPostalCode.setText(userModel.getLocation().getPostcode());
+        tvState.setText(userModel.getLocation().getState());
+        tvCity.setText(userModel.getLocation().getCity());
+        tvStreet.setText(userModel.getLocation().getStreet());
         toolbarUserProfile.setTitle(firstName.substring(0,1).toUpperCase() + firstName.substring(1)
                 + " "
                 + lastName.substring(0,1).toUpperCase() + lastName.substring(1));
-        if (userModel.getGender().equals("female")){
-            System.out.println("Sd");
-          floatingButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_female_symbol));
-        }else {
-            floatingButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_male_sign));
-        }
+        toolbarUserProfile.setNavigationIcon(R.drawable.ic_back_arrow);
+        toolbarUserProfile.setNavigationOnClickListener(v -> getActivity().onBackPressed());
+
+        Transformation transformation = new RoundedTransformationBuilder()
+                .borderWidthDp(0)
+                .cornerRadiusDp(40)
+                .oval(true)
+                .build();
 
         Picasso.with(getContext())
                 .load(userModel.getPicture().getLarge())
+                .fit()
+                .transform(transformation)
                 .into(ivAvatar);
-
-
 
     }
 

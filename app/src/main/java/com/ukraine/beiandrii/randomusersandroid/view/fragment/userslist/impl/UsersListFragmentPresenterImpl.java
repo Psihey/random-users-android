@@ -8,6 +8,7 @@ import com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.UsersLis
 import com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.UsersListFragmentPresenter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -56,6 +57,7 @@ public class UsersListFragmentPresenterImpl implements UsersListFragmentPresente
             for (UserModel userModel : userJson.getResult()) {
                 mUserModel.add(userModel);
             }
+            Collections.sort(mUserModel, (o1, o2) -> o1.getName().getLast().compareTo(o2.getName().getLast()));
             mUsersListFragment.initRecyclerView(mUserModel);
         }
 

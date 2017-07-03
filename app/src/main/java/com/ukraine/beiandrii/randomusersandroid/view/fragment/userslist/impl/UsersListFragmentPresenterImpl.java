@@ -43,27 +43,34 @@ public class UsersListFragmentPresenterImpl implements UsersListFragmentPresente
 
 
     public void getUsersFromServer() {
-        mCompositeDisposable.add(RetrofitProvider.getRetrofit().getUsers(100)
+        mCompositeDisposable.add(RetrofitProvider
+                .getRetrofit().getUsers(100)
                 .subscribeOn(Schedulers.io())
                 .filter(userJson -> !userJson.equals(null))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::handleResponse, this::handleError));
     }
 
-    private void handleResponse(UserJson androidList) {
+    @Override
+    public void refreshUsers() {
+        this.mUserModel.clear();
+        getUsersFromServer();
+        Logger.d("Refresh Users");
+    }
+
+    private void handleResponse(UserJson userList) {
         List<UserJson> userJsons = new ArrayList<>();
-        userJsons.add(androidList);
+        userJsons.add(userList);
         for (UserJson userJson : userJsons) {
-            for (UserModel userModel : userJson.getResult()) {
-                mUserModel.add(userModel);
-            }
+            mUserModel.addAll(userJson.getResult());
             Collections.sort(mUserModel, (o1, o2) -> o1.getName().getLast().compareTo(o2.getName().getLast()));
             mUsersListFragment.initRecyclerView(mUserModel);
         }
-
+        Logger.d("Handle Response");
     }
 
     private void handleError(Throwable error) {
-           mUsersListFragment.showDialogError();
+        mUsersListFragment.showDialogError();
+        Logger.d("Handle Error");
     }
 }

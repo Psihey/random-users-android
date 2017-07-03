@@ -40,11 +40,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user, parent, false);
         return new UserViewHolder(view);
     }
 
-    //TODO Implement photo at error or bad connection with Picasso
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
         String firstName = mUsers.get(position).getName().getFirst();
@@ -62,20 +61,23 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
                 .fit()
                 .transform(transformation)
                 .into(holder.ivAvatar);
-        holder.tvUserName.setText(lastName.substring(0,1).toUpperCase() + lastName.substring(1)
+        holder.tvUserName.setText(lastName.substring(0, 1).toUpperCase() + lastName.substring(1)
                 + " "
-                + firstName.substring(0,1).toUpperCase() + firstName.substring(1));
-        holder.tvUserState.setText(state.substring(0,1).toUpperCase() + state.substring(1));
+                + firstName.substring(0, 1).toUpperCase() + firstName.substring(1));
+        holder.tvUserState.setText(state.substring(0, 1).toUpperCase() + state.substring(1));
 
         holder.relativeLayout.setOnClickListener(view -> mUserListFragment.openUserProfileFragment(mUsers.get(position)));
     }
 
     @Override
     public int getItemCount() {
-        return mUsers.size();
+        if (mUsers != null) {
+            return mUsers.size();
+        }
+        return 0;
     }
 
-    class UserViewHolder extends RecyclerView.ViewHolder{
+    class UserViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.iv_item_user_avatar)
         ImageView ivAvatar;
         @BindView(R.id.tv_item_user_name)
@@ -87,7 +89,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserVi
 
         public UserViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

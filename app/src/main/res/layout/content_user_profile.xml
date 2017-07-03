@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_telephone_mobile"
-                android:text="test"
+                android:text="@string/test_text"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/iv_telephone_mobile"
-                android:text="Mobile Phone"
+                android:text="@string/user_profile_mobile_phone"
                 android:textSize="14sp" />
         </RelativeLayout>
 
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_telephone_home"
-                android:text="test"
+                android:text="@string/test_text"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 
@@ -84,7 +84,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_telephone_home"
-                android:text="Home Phone"
+                android:text="@string/user_profile_home_phone"
                 android:textSize="14sp"/>
         </RelativeLayout>
 
@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_email"
-                android:text="test"
+                android:text="@string/test_text"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -123,7 +123,7 @@
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/iv_email"
-                android:text="Email"
+                android:text="@string/user_profile_email"
                 android:textSize="14sp" />
         </RelativeLayout>
 
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_postal_code"
-                android:text="test"
+                android:text="@string/test_text"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -161,7 +161,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_postal_code"
-                android:text="Postal Code"
+                android:text="@string/user_profile_postal_code"
                 android:textSize="14sp"/>
         </RelativeLayout>
 
@@ -189,7 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_state"
-                android:text="test"
+                android:text="@string/test_text"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 
@@ -200,7 +200,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_state"
-                android:text="State"
+                android:text="@string/user_profile_state"
                 android:textSize="14sp"/>
         </RelativeLayout>
 
@@ -227,7 +227,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_city"
-                android:text="test"
+                android:text="@string/test_text"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 
@@ -238,7 +238,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_city"
-                android:text="City"
+                android:text="@string/user_profile_city"
                 android:textSize="14sp"/>
         </RelativeLayout>
 
@@ -265,7 +265,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_street"
-                android:text="test"
+                android:text="@string/test_text"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -276,7 +276,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/user_profile_fragment_margin"
                 android:layout_toRightOf="@id/iv_street"
-                android:text="Street"
+                android:text="@string/user_profile_street"
                 android:textSize="14sp" />
 
         </RelativeLayout>

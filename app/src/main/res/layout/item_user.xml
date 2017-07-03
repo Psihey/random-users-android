@@ -30,7 +30,7 @@
             android:gravity="bottom"
             android:maxLines="1"
             android:paddingLeft="@dimen/item_user_tv_name_and_country_paddingLeft"
-            android:text="user name test"
+            android:text="@string/test_text"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
             android:gravity="top"
             android:maxLines="1"
             android:paddingLeft="@dimen/item_user_tv_name_and_country_paddingLeft"
-            android:text="state name"
+            android:text="@string/test_text"
             android:textSize="14sp" />
     </RelativeLayout>
 

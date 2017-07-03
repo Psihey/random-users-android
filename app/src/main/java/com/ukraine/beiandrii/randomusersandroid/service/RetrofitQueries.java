@@ -19,15 +19,20 @@ public interface RetrofitQueries {
     Observable<UserJson> getUsers(@Query("results") int numResults);
 
     @GET("api")
-    Observable<UserJson> getSameUsers(@Query("results") int numResults,@Query("seed") String feed);
+    Observable<UserJson> getSameUsers(@Query("results") int numResults,
+                                      @Query("seed") String feed);
 
     @GET("api")
-    Observable<UserJson> getUsersByNationally(@Query("results") int numResults, @Query("nat") String national);
+    Observable<UserJson> getUsersByNationally(@Query("results") int numResults,
+                                              @Query("nat") String national);
 
     @GET("api")
-    Observable<UserJson> getUsersByGender(@Query("results") int numResults, @Query("gender") String gender);
+    Observable<UserJson> getUsersByGender(@Query("results") int numResults,
+                                          @Query("gender") String gender);
 
     @GET("api")
-    Observable<UserJson> getUsersWithPagination(@Query("results") int numResults,@Query("page") int page);
+    Observable<UserJson> getUsersWithPagination(@Query("results") int numResults,
+                                                @Query("page") int page,
+                                                @Query("seed") String seed);
 
 }

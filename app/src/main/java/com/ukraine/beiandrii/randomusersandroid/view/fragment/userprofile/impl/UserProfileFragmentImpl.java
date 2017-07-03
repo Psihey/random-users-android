@@ -11,7 +11,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -67,15 +66,6 @@ public class UserProfileFragmentImpl extends Fragment {
         return userProfileFragment;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if(android.R.id.home ==id){
-            System.out.println("fffffff");
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -92,7 +82,7 @@ public class UserProfileFragmentImpl extends Fragment {
         if (mUnbinder != null) {
             mUnbinder.unbind();
         }
-        if(!mActionBarMain.isShowing()){
+        if (!mActionBarMain.isShowing()) {
             mActionBarMain.show();
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -101,19 +91,20 @@ public class UserProfileFragmentImpl extends Fragment {
     }
 
     private void setUpToolbar() {
+        toolbarUserProfile.setNavigationIcon(R.drawable.ic_back_arrow);
+        toolbarUserProfile.setNavigationOnClickListener(v -> getActivity().onBackPressed());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mWindow = getActivity().getWindow();
             mWindow.setStatusBarColor(Color.TRANSPARENT);
         }
-       mActionBarMain = ((AppCompatActivity) getActivity()).getSupportActionBar();
-        if (mActionBarMain.isShowing()){
+        mActionBarMain = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (mActionBarMain.isShowing()) {
             mActionBarMain.hide();
         }
     }
 
     private void getParcelableDataAndSetInView() {
         UserModel userModel = getArguments().getParcelable(BundleKeysConst.BUNDLE_USER_MODEL);
-        System.out.println(userModel);
         String firstName = userModel.getName().getFirst();
         String lastName = userModel.getName().getLast();
         tvMobileNumber.setText(userModel.getPhone());
@@ -123,11 +114,10 @@ public class UserProfileFragmentImpl extends Fragment {
         tvState.setText(userModel.getLocation().getState());
         tvCity.setText(userModel.getLocation().getCity());
         tvStreet.setText(userModel.getLocation().getStreet());
-        toolbarUserProfile.setTitle(firstName.substring(0,1).toUpperCase() + firstName.substring(1)
+        toolbarUserProfile.setTitle(firstName.substring(0, 1).toUpperCase() + firstName.substring(1)
                 + " "
-                + lastName.substring(0,1).toUpperCase() + lastName.substring(1));
-        toolbarUserProfile.setNavigationIcon(R.drawable.ic_back_arrow);
-        toolbarUserProfile.setNavigationOnClickListener(v -> getActivity().onBackPressed());
+                + lastName.substring(0, 1).toUpperCase() + lastName.substring(1));
+
 
         Transformation transformation = new RoundedTransformationBuilder()
                 .borderWidthDp(0)

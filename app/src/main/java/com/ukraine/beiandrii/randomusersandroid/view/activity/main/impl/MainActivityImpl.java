@@ -1,5 +1,6 @@
 package com.ukraine.beiandrii.randomusersandroid.view.activity.main.impl;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -22,6 +23,7 @@ public class MainActivityImpl extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        setOrientationByUserDeviceConfiguration();
         setSupportActionBar(mToolBar);
         startUsersListFragment();
         mToolBar.setTitleTextColor(Color.WHITE);
@@ -41,6 +43,12 @@ public class MainActivityImpl extends AppCompatActivity {
                         usersListFragment,
                         FragmentConsts.TAG_USERS_LIST_FRAGMENT)
                 .commit();
+    }
+
+    private void setOrientationByUserDeviceConfiguration() {
+        if (getResources().getConfiguration().smallestScreenWidthDp < 600) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }
 
 }

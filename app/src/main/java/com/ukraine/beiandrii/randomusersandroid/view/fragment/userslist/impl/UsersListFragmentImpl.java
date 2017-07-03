@@ -40,7 +40,7 @@ import butterknife.Unbinder;
 public class UsersListFragmentImpl extends Fragment implements UsersListFragment {
 
     @BindView(R.id.recycler_view_users)
-    RecyclerView mRecyclerViewUser;
+    RecyclerView recyclerViewUser;
 
     private UsersListFragmentPresenter mUsersListFragmentPresenter;
     private Unbinder mUnbinder;
@@ -61,13 +61,14 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_lists_fragment,menu);
+        inflater.inflate(R.menu.menu_lists_fragment, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(R.id.menu_item_refresh == id){
+        if (R.id.menu_item_refresh == id) {
+            mUsersListFragmentPresenter.refreshUsers();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -109,35 +110,34 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
     @Override
     public void initRecyclerView(List<UserModel> userModel) {
         mProgressDialog.cancel();
-        mRecyclerViewUser.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerViewUser.setLayoutManager(linearLayoutManager);
-        UserListAdapter userListAdapter = new UserListAdapter(getContext(),userModel,this);
-        mRecyclerViewUser.setAdapter(userListAdapter);
-
+        recyclerViewUser.setHasFixedSize(true);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerViewUser.setLayoutManager(mLinearLayoutManager);
+        UserListAdapter userListAdapter = new UserListAdapter(getContext(), userModel, this);
+        recyclerViewUser.setAdapter(userListAdapter);
     }
 
     @Override
     public void showDialogError() {
         mProgressDialog.cancel();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Oops ,something going in wrong way");
+        builder.setTitle(R.string.users_list_alert_dialog_title);
+        builder.setMessage(R.string.users_list_alert_dialog_message);
         builder.setIcon(R.drawable.ic_round_error_symbol);
-        builder.setMessage("Please check your internet connection");
-        builder.setPositiveButton("Retry", (dialog, which) -> {
+        builder.setPositiveButton(R.string.users_list_alert_dialog_positive_button, (dialog, which) -> {
             mProgressDialog.show();
-           mUsersListFragmentPresenter.getUsersFromServer();
+            mUsersListFragmentPresenter.getUsersFromServer();
         });
-        builder.setNegativeButton("Close",(dialog, which) -> {
-           getActivity().onBackPressed();
+        builder.setNegativeButton(R.string.users_list_alert_dialog_negative_button, (dialog, which) -> {
+            getActivity().onBackPressed();
         });
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
     private void setUpToolbar() {
-        ActionBar mainActivityToolbar =((AppCompatActivity) getActivity()).getSupportActionBar();
-        if (!mainActivityToolbar.isShowing()){
+        ActionBar mainActivityToolbar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (!mainActivityToolbar.isShowing()) {
             mainActivityToolbar.show();
         }
 
@@ -149,8 +149,8 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
 
     private void initProgressDialog() {
         mProgressDialog = new ProgressDialog(getContext());
-        mProgressDialog.setMessage("Please wait some seconds! fetching data from the server");
-        mProgressDialog.setTitle("Inform Dialog");
+        mProgressDialog.setTitle(getString(R.string.users_list_progress_dialog_title));
+        mProgressDialog.setMessage(getString(R.string.users_list_progress_dialog_message));
         mProgressDialog.setIcon(R.drawable.ic_download_button);
         mProgressDialog.show();
     }

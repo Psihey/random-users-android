@@ -23,7 +23,7 @@ import com.ukraine.beiandrii.randomusersandroid.R;
 import com.ukraine.beiandrii.randomusersandroid.model.UserModel;
 import com.ukraine.beiandrii.randomusersandroid.view.adapter.UserListAdapter;
 import com.ukraine.beiandrii.randomusersandroid.view.consts.FragmentConsts;
-import com.ukraine.beiandrii.randomusersandroid.view.fragment.userprofile.impl.UserProfileFragmentImpl;
+import com.ukraine.beiandrii.randomusersandroid.view.fragment.userprofile.UserProfileFragment;
 import com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.UsersListFragment;
 import com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.UsersListFragmentPresenter;
 
@@ -96,7 +96,7 @@ public class UsersListFragmentImpl extends Fragment implements UsersListFragment
     @Override
     public void openUserProfileFragment(UserModel userModel) {
         FragmentManager fragManager = getFragmentManager();
-        UserProfileFragmentImpl userProfileFragment = UserProfileFragmentImpl.getInstance(userModel);
+        UserProfileFragment userProfileFragment = UserProfileFragment.getInstance(userModel);
         fragManager
                 .beginTransaction()
                 .hide(this)

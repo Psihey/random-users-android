@@ -1,4 +1,4 @@
-package com.ukraine.beiandrii.randomusersandroid.view.fragment.userprofile.impl;
+package com.ukraine.beiandrii.randomusersandroid.view.fragment.userprofile;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -32,7 +32,7 @@ import butterknife.Unbinder;
  * Created by psihey on 29.06.17.
  */
 
-public class UserProfileFragmentImpl extends Fragment {
+public class UserProfileFragment extends Fragment {
     @BindView(R.id.tv_telephone_mobile)
     TextView tvMobileNumber;
     @BindView(R.id.tv_telephone_home)
@@ -58,8 +58,8 @@ public class UserProfileFragmentImpl extends Fragment {
     private ActionBar mActionBarMain;
     private Window mWindow;
 
-    public static UserProfileFragmentImpl getInstance(Parcelable parcelable) {
-        UserProfileFragmentImpl userProfileFragment = new UserProfileFragmentImpl();
+    public static UserProfileFragment getInstance(Parcelable parcelable) {
+        UserProfileFragment userProfileFragment = new UserProfileFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(BundleKeysConst.BUNDLE_USER_MODEL, parcelable);
         userProfileFragment.setArguments(bundle);

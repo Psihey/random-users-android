@@ -1,4 +1,4 @@
-package com.ukraine.beiandrii.randomusersandroid.view.activity.main.impl;
+package com.ukraine.beiandrii.randomusersandroid.view.activity.main;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -14,7 +14,7 @@ import com.ukraine.beiandrii.randomusersandroid.view.fragment.userslist.impl.Use
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivityImpl extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar_main_activity)
     Toolbar mToolBar;
 
